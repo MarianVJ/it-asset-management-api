@@ -1,5 +1,6 @@
 import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
+import angajatiRouter from './routes/angajati';
 
 const app = new Koa();
 
@@ -13,5 +14,7 @@ app.use(async (ctx, next) => {
 });
 
 app.use(bodyParser());
+
+app.use(angajatiRouter.routes()).use(angajatiRouter.allowedMethods());
 
 export default app;
